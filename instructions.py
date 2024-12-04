@@ -1,6 +1,5 @@
 Code = """
--Write the code for the application ideas, no need of demo code or sample code.
--The user is looking for the "Production ready code". 
+-Write the code for the application ideas, no need of demo code or sample code. 
 -Explain the user:
    1. Apprach - What is the approach you are taking to build the app?
    2. Explain - Explain the code in detail
