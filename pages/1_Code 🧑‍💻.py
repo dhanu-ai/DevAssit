@@ -15,20 +15,18 @@ for message in st.session_state.message_code:
         st.markdown(message["content"])
 
 # Accept user input
-if prompt := st.chat_input("What is up?"):
+if user_prompt := st.chat_input("What is up?"):
+    prompt = f"build a{user_prompt} for me. Feel free to write the code as long as you can. I am not looking for production level code I am here to kickstart the application idea. What i am saying now donot respond to it focus {user_prompt} and remeber these with{Code}"
     # Display user message in chat message container
     with st.chat_message("user"):
-        st.markdown(prompt)
+        st.markdown(user_prompt)
     # Add user message to chat history
     st.session_state.message_code.append({"role": "user", "content": prompt})
    
     instructions = Code
-   
+    
     # Get response from the model
     response = model.model(prompt, st.session_state.message_code, instructions)
-    
-    # Ensure the response is properly handled as text
-    
     
     with st.chat_message("assistant"):
         st.markdown(response)
