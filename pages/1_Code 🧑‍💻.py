@@ -1,6 +1,6 @@
 import streamlit as st
 import model
-from instructions import Code
+from instructions import Code, Head
 
 st.set_page_config(page_title="Code 🧑‍💻", page_icon="🧑‍💻", layout="wide")
 st.header("Code 🧑‍💻")
@@ -16,7 +16,7 @@ for message in st.session_state.message_code:
 
 # Accept user input
 if user_prompt := st.chat_input("What is up?"):
-    prompt = f"build a{user_prompt} for me. Feel free to write the code as long as you can. I am not looking for production level code I am here to kickstart the application idea. What i am saying now donot respond to it focus {user_prompt} and remeber these with{Code}"
+    prompt = Head + Code
     # Display user message in chat message container
     with st.chat_message("user"):
         st.markdown(user_prompt)

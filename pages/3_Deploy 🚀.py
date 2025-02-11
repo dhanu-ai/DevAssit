@@ -1,6 +1,6 @@
 import streamlit as st
 import model
-from instructions import Deploy
+from instructions import Deploy, Head
 
 st.set_page_config(page_title="Deploy 🚀", page_icon="🚀", layout="wide")
 st.header("Deploy 🚀")
@@ -22,7 +22,7 @@ if prompt := st.chat_input("What is up?"):
     # Add user message to chat history
     st.session_state.message_deploy.append({"role": "user", "content": prompt})
    
-    instructions = Deploy
+    instructions = Head +Deploy
    
     # Get response from the model
     response = model.model(prompt, st.session_state.message_deploy, instructions)

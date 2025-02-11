@@ -1,6 +1,6 @@
 import streamlit as st
 import model
-from instructions import Debug
+from instructions import Debug, Head
 
 st.set_page_config(page_title="Debug 🐛", page_icon="🐛", layout="wide")
 st.header("Debug 🐛")
@@ -22,7 +22,7 @@ if prompt := st.chat_input("What is up?"):
     # Add user message to chat history
     st.session_state.message_debug.append({"role": "user", "content": prompt})
    
-    instructions = Debug
+    instructions = Head + Debug
    
     # Get response from the model
     response = model.model(prompt, st.session_state.message_debug, instructions)
